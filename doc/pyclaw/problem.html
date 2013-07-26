@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Setting up your own problem &mdash; Clawpack 4.6.x documentation</title>
+    <title>Setting up your own problem &mdash; Clawpack 5.0.0rc-alpha documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '4.6.x',
+        VERSION:     '5.0.0rc-alpha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/clawicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="top" title="Clawpack 4.6.x documentation" href="../index.html" />
+    <link rel="top" title="Clawpack 5.0.0rc-alpha documentation" href="../index.html" />
     <link rel="up" title="Going Further" href="going_further.html" />
     <link rel="next" title="Clawpack and PyClaw" href="clawpack_and_pyclaw.html" />
     <link rel="prev" title="Going Further" href="going_further.html" /> 
@@ -171,14 +171,14 @@ more details.</p>
 <li>Set the Riemann solver if using a Python Riemann solver</li>
 <li>Set solver.num_waves to the number of waves used in the Riemann solver</li>
 <li>Set the boundary conditions</li>
-<li>Instantiate some <a class="reference internal" href="geometry.html#pyclaw.geometry.Dimension" title="pyclaw.geometry.Dimension"><tt class="xref py py-class docutils literal"><span class="pre">Dimension</span></tt></a> object(s) and a <a class="reference internal" href="geometry.html#pyclaw.geometry.Grid" title="pyclaw.geometry.Grid"><tt class="xref py py-class docutils literal"><span class="pre">Grid</span></tt></a></li>
+<li>Instantiate some <tt class="xref py py-class docutils literal"><span class="pre">Dimension</span></tt> object(s) and a <tt class="xref py py-class docutils literal"><span class="pre">Grid</span></tt></li>
 <li>Set any required global values in problem_data</li>
 <li>Set grid.num_eqn and grid.num_ghost</li>
 <li>Set the initial condition (grid.q)</li>
 </ul>
 </div></blockquote>
-<p>Usually the script then instantiates a <a class="reference internal" href="controller.html#pyclaw.controller.Controller" title="pyclaw.controller.Controller"><tt class="xref py py-class docutils literal"><span class="pre">Controller</span></tt></a>, sets the
-initial solution and solver, and calls <a class="reference internal" href="controller.html#pyclaw.controller.Controller.run" title="pyclaw.controller.Controller.run"><tt class="xref py py-meth docutils literal"><span class="pre">run()</span></tt></a>.</p>
+<p>Usually the script then instantiates a <tt class="xref py py-class docutils literal"><span class="pre">Controller</span></tt>, sets the
+initial solution and solver, and calls <tt class="xref py py-meth docutils literal"><span class="pre">run()</span></tt>.</p>
 <div class="section" id="setting-initial-conditions">
 <h3>Setting initial conditions<a class="headerlink" href="#setting-initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>Once you have initialize a State object, it contains a member state.q
@@ -195,7 +195,7 @@ of the grid.  Now you must set the initial condition.  For instance</p>
 </div>
 <p>Note that in a parallel run we only wish to set the local values of the state
 so the appropriate geometry object to use here is the
-<a class="reference internal" href="geometry.html#pyclaw.geometry.Grid" title="pyclaw.geometry.Grid"><tt class="xref py py-class docutils literal"><span class="pre">Grid</span></tt></a> class.</p>
+<tt class="xref py py-class docutils literal"><span class="pre">Grid</span></tt> class.</p>
 </div>
 <div class="section" id="setting-auxiliary-variables">
 <h3>Setting auxiliary variables<a class="headerlink" href="#setting-auxiliary-variables" title="Permalink to this headline">¶</a></h3>

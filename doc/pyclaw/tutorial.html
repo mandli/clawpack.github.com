@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Tutorial: Solve the acoustics equations &mdash; Clawpack 4.6.x documentation</title>
+    <title>Tutorial: Solve the acoustics equations &mdash; Clawpack 5.0.0rc-alpha documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '4.6.x',
+        VERSION:     '5.0.0rc-alpha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/clawicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="top" title="Clawpack 4.6.x documentation" href="../index.html" />
+    <link rel="top" title="Clawpack 5.0.0rc-alpha documentation" href="../index.html" />
     <link rel="up" title="The Basics" href="basics.html" />
     <link rel="next" title="Solving other hyperbolic PDEs" href="apps.html" />
     <link rel="prev" title="Installation" href="started.html" /> 
@@ -213,14 +213,14 @@ a 1D grid requires only 1 dimension</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">pyclaw</span><span class="o">.</span><span class="n">Dimension</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This creates a <a class="reference internal" href="geometry.html#pyclaw.geometry.Dimension" title="pyclaw.geometry.Dimension"><tt class="xref py py-class docutils literal"><span class="pre">Dimension</span></tt></a> object named <tt class="docutils literal"><span class="pre">x</span></tt>  on the interval <tt class="docutils literal"><span class="pre">[-1.0,</span> <span class="pre">1.0]</span></tt> with <tt class="docutils literal"><span class="pre">200</span></tt>
+<p>This creates a <tt class="xref py py-class docutils literal"><span class="pre">Dimension</span></tt> object named <tt class="docutils literal"><span class="pre">x</span></tt>  on the interval <tt class="docutils literal"><span class="pre">[-1.0,</span> <span class="pre">1.0]</span></tt> with <tt class="docutils literal"><span class="pre">200</span></tt>
 cells.  Notice that the calling sequence is similar to numpy&#8217;s <tt class="docutils literal"><span class="pre">linspace</span></tt>
 command, except that the first argument is the name of the dimension.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">domain</span> <span class="o">=</span> <span class="n">pyclaw</span><span class="o">.</span><span class="n">Domain</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This creates a <a class="reference internal" href="geometry.html#pyclaw.geometry.Domain" title="pyclaw.geometry.Domain"><tt class="xref py py-class docutils literal"><span class="pre">Domain</span></tt></a> object, which holds information about the cell center
-and edge coordinates.  Finally, we set up a <a class="reference internal" href="state.html#pyclaw.state.State" title="pyclaw.state.State"><tt class="xref py py-class docutils literal"><span class="pre">State</span></tt></a>
+<p>This creates a <tt class="xref py py-class docutils literal"><span class="pre">Domain</span></tt> object, which holds information about the cell center
+and edge coordinates.  Finally, we set up a <tt class="xref py py-class docutils literal"><span class="pre">State</span></tt>
 =======
 object, which will hold the solution values:</p>
 <div class="highlight-python"><pre>.. doctest::</pre>
@@ -240,7 +240,7 @@ system we&#8217;re solving: in this case, two.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="mf">0.</span>                       <span class="c"># Velocity: zero.</span>
 </pre></div>
 </div>
-<p>Finally, we put the state into a <a class="reference internal" href="solution.html#pyclaw.solution.Solution" title="pyclaw.solution.Solution"><tt class="xref py py-class docutils literal"><span class="pre">Solution</span></tt></a> object:</p>
+<p>Finally, we put the state into a <tt class="xref py py-class docutils literal"><span class="pre">Solution</span></tt> object:</p>
 <div class="highlight-python"><pre>.. doctest::</pre>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">solution</span> <span class="o">=</span> <span class="n">pyclaw</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="n">domain</span><span class="p">)</span>
@@ -254,7 +254,7 @@ bulk modulus <span class="math">\(K\)</span> and density <span class="math">\(\r
 Furthermore, checking the code for the Riemann solver we&#8217;ve chosen
 reveals that it expects us to provide values for the impedance <span class="math">\(Z\)</span>
 and sound speed <span class="math">\(c\)</span>.  These values are stored in a Python dictionary
-called problem_data that is a member of the <a class="reference internal" href="state.html#pyclaw.state.State" title="pyclaw.state.State"><tt class="xref py py-class docutils literal"><span class="pre">State</span></tt></a></p>
+called problem_data that is a member of the <tt class="xref py py-class docutils literal"><span class="pre">State</span></tt></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bulk</span> <span class="o">=</span> <span class="mf">1.0</span>
@@ -268,7 +268,7 @@ called problem_data that is a member of the <a class="reference internal" href="
 <div class="section" id="the-controller">
 <h2><a class="toc-backref" href="#id6">The controller</a><a class="headerlink" href="#the-controller" title="Permalink to this headline">¶</a></h2>
 <p>The most convenient way to run a PyClaw simulation is by using a
-<a class="reference internal" href="controller.html#pyclaw.controller.Controller" title="pyclaw.controller.Controller"><tt class="xref py py-class docutils literal"><span class="pre">Controller</span></tt></a> object.  The controller
+<tt class="xref py py-class docutils literal"><span class="pre">Controller</span></tt> object.  The controller
 directs the solver in advancing the solution and handles output.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span> <span class="o">=</span> <span class="n">pyclaw</span><span class="o">.</span><span class="n">Controller</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">controller</span><span class="o">.</span><span class="n">solution</span> <span class="o">=</span> <span class="n">solution</span>
